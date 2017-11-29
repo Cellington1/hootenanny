@@ -43,12 +43,15 @@ pipeline {
                 sh "vagrant up ${params.Box} --no-provision --provider aws"
             }       
         }
-        stage("Core Tests") {      
-            steps {
+        stage("Core Tests") {
+            stpes {
                 echo 'Core Tests'
-                if (params.Fail_step) {
-                    currentBuild.result = 'FAILURE'
-                }
+            }
+            when {
+                expression { return params.Fail_step }
+            }
+            steps {
+                currentBuild.result = 'FAILURE'
             }
         }
         stage("Services Tests") {
