@@ -7,7 +7,7 @@ pipeline {
         stage("Setup") {
             steps {
                 // Attempt to destroy exiting VM but don't stop job if not there
-                sh "vagrant destroy -f ${params.Box} || true"
+                sh "vagrant destroy -f hoot_centos7 || true"
                 // Make sure we have the tags info because figuring out the version is required in the build process
                 sh '''
                     git fetch --tags
@@ -60,7 +60,7 @@ pipeline {
     post {
         success {
             // If all tests passed, clean everything up
-            sh "vagrant destroy -f ${params.Box}"
+            sh "vagrant destroy -f hoot_centos7"
             cleanWs()
         }
         failure {
