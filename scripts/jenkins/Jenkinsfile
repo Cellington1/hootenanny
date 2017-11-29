@@ -42,7 +42,7 @@ pipeline {
             }
             steps {
                 script {
-                    currentBuild.result = 'FAILURE'
+                    error("Build failed because I failed it")
                 }
             }
         }
