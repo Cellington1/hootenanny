@@ -26,14 +26,7 @@ pipeline {
         stage("License Header") {
             steps {
                 script {
-                    try {
-                        sh '''
-                            export HOOT_HOME=`pwd`
-                            ./scripts/copyright/UpdateAllCopyrightHeaders.sh
-                        '''
-                    } catch (Exception e) {
-                        currentBuild.result = 'UNSTABLE'
-                    }
+                    echo 'License Header'   
                 }
             }
         }
