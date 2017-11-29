@@ -40,7 +40,7 @@ pipeline {
         stage("Vagrant Up") {
             steps {
                 // NOTE: Only installs hoot build dependencies
-                sh "vagrant up ${params.Box} --no-provision --provider aws"
+                sh "vagrant up hoot_centos7 --no-provision --provider aws"
             }       
         }
         stage("Core Tests") {
