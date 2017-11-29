@@ -44,7 +44,7 @@ pipeline {
             }       
         }
         stage("Core Tests") {
-            stpes {
+            steps {
                 echo 'Core Tests'
             }
             when {
