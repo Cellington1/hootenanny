@@ -48,7 +48,9 @@ pipeline {
                 expression { return params.Fail_step }
             }
             steps {
-                currentBuild.result = 'FAILURE'
+                script {
+                    currentBuild.result = 'FAILURE'
+                }
             }
         }
         stage("Services Tests") {
