@@ -44,9 +44,6 @@ pipeline {
             }       
         }
         stage("Core Tests") {
-            steps {
-                echo 'Core Tests'
-            }
             when {
                 expression { return params.Fail_step }
             }
